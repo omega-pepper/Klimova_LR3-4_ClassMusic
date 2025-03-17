@@ -5,14 +5,14 @@
 // Функция для демонстрации всех конструкторов
 void demoConstructors() {
     Composition defaultComp;
-    Composition paramComp("Song A", "Author A", 3.5, {"2020", "2021"});
+    Composition paramComp("ПесенкААААААААААААААААААААААААА", "АААААААААААААААААААААААААвтор", 3.5, {"2020", "2021"});
     Composition copyComp(paramComp);
-    Composition convertedComp("Converted Song");
+    Composition convertedComp("Конвертированная песенка.");
     
-    cout << "Default Constructor:\n" << defaultComp << endl;
-    cout << "Parameterized Constructor:\n" << paramComp << endl;
-    cout << "Copy Constructor:\n" << copyComp << endl;
-    cout << "Conversion Constructor:\n" << convertedComp << endl;
+    cout << "Конструктор по умолчанию:\n" << defaultComp << endl;
+    cout << "Параметрический конструктор:\n" << paramComp << endl;
+    cout << "Конструктор копирования:\n" << copyComp << endl;
+    cout << "Конверсионный конструктор:\n" << convertedComp << endl;
 }
 
 // Функция для демонстрации работы методов
@@ -36,9 +36,9 @@ void demoOperators() {
     cout << "Сравнение (Песенка икс < Песенка игрек): " << (comp1 < comp2 ? "Ну тут всё кристально ясно" : "Пасмурно") << endl;
     cout << "Прибавка (Песенка икс + Песенка игрек):\n" << (comp1 + comp2) << endl;
     
-    cout << "Prefix Increment:\n" << ++comp1 << endl;
-    cout << "Postfix Increment:\n" << comp1++ << endl;
-    cout << "After Postfix Increment:\n" << comp1 << endl;
+    cout << "Префикс инкремент:\n" << ++comp1 << endl;
+    cout << "Постфикс инкремент:\n" << comp1++ << endl;
+    cout << "После постфикс инкремента:\n" << comp1 << endl;
 }
 
 // Функция демонстрации работы с массивом объектов

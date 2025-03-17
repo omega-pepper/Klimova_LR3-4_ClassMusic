@@ -19,7 +19,7 @@ bool isValidString(const string& str) {
 double inputValidDuration() {
     double duration;
     do {
-        cout << "Enter valid duration (positive number): ";
+        cout << "Введите действительную длительность (положительное число): ";
         cin >> duration;
     } while (!isValidDuration(duration));
     return duration;

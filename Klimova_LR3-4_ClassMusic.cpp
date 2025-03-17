@@ -1,7 +1,7 @@
 #include "Klimova_LR3-4_ClassMusic.h"
 
 // Конструктор по умолчанию
-Composition::Composition() : title("Unknown"), author("Unknown"), duration(0.0), releases({}) {}
+Composition::Composition() : title("Неизвестен!"), author("Неизвестен :()"), duration(0.0), releases({}) {}
 
 // Параметризованный конструктор
 Composition::Composition(const string& title, const string& author, double duration, const vector<string>& releases)
@@ -12,17 +12,17 @@ Composition::Composition(const Composition& other)
     : title(other.title), author(other.author), duration(other.duration), releases(other.releases) {}
 
 // Конструктор преобразования (из строки в композицию)
-Composition::Composition(const string& title) : title(title), author("Unknown"), duration(0.0), releases({}) {}
+Composition::Composition(const string& title) : title(title), author("Неизвестен :)"), duration(0.0), releases({}) {}
 
 // Деструктор
 Composition::~Composition() {}
 
 // Дружественная функция вывода
 ostream& operator<<(ostream& os, const Composition& c) {
-    os << "Title: " << c.title << "\n";
-    os << "Author: " << c.author << "\n";
-    os << "Duration: " << c.duration << " min\n";
-    os << "Releases: ";
+    os << "Название: " << c.title << "\n";
+    os << "Автор: " << c.author << "\n";
+    os << "Длительность: " << c.duration << " мин.\n";
+    os << "Релизы: ";
     for (const auto& release : c.releases) {
         os << release << " ";
     }
@@ -32,14 +32,14 @@ ostream& operator<<(ostream& os, const Composition& c) {
 
 // Дружественная функция ввода
 istream& operator>>(istream& is, Composition& c) {
-    cout << "Enter title: ";
+    cout << "Введите название: ";
     getline(is, c.title);
-    cout << "Enter author: ";
+    cout << "Введите автора: ";
     getline(is, c.author);
-    cout << "Enter duration (in minutes): ";
+    cout << "Введите продолжительность (в минутах): ";
     is >> c.duration;
     is.ignore(); // Очищаем буфер
-    cout << "Enter releases (space-separated, end with '\n'): ";
+    cout << "Введите релизы (разделённые пробелами): ";
     string release;
     c.releases.clear();
     while (is.peek() != '\n') {
