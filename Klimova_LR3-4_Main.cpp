@@ -10,11 +10,10 @@ int main()
         {2, demoParameterizedConstructor},
         {3, demoCopyConstructor},
         {4, demoConversionConstructor},
-        {5, demoDelegatingConstructor},
-        {6, demoMethods},
-        {7, demoOperators},
-        {8, demoArray},
-        {9, demoSorting}
+        {5, demoMethods},
+        {6, demoOperators},
+        {7, demoArray},
+        {8, demoSorting}
     };
 
     while (true) {
@@ -23,11 +22,10 @@ int main()
         cout << "2. Параметризованный конструктор.\n";
         cout << "3. Конструктор копирования.\n";
         cout << "4. Конструктор преобразования.\n";
-        cout << "5. Делегация.\n";
-        cout << "6. Методы.\n";
-        cout << "7. Операторы.\n";
-        cout << "8. Список композиций (массив).\n";
-        cout << "9. Сортировка по длительности.\n";
+        cout << "5. Методы.\n";
+        cout << "6. Операторы.\n";
+        cout << "7. Список композиций (массив).\n";
+        cout << "8. Сортировка по длительности.\n";
         cout << "0. Выход.\n";
         
         int choice;

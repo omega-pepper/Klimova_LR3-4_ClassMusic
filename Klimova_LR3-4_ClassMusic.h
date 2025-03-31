@@ -19,7 +19,7 @@ private:
 
 public:
     // Конструкторы
-      Composition() : Composition("Неизвестный трек", "Неизвестный автор", 0.0, {}) {}
+    Composition() : Composition("Неизвестный трек", "Неизвестный автор", 0.0, {}) {}
 
     Composition(const string& title, const string& author, double duration, const vector<string>& releases)
         : title(title), author(author), duration(duration), releases(releases) {}

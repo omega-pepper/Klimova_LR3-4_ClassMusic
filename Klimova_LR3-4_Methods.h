@@ -111,13 +111,9 @@ void demoCopyConstructor() {
     cout << "Конструктор копирования:\n" << copyComp << endl;
 }
 
-void demoConversionConstructor() {
+void demoConversionConstructor() 
+{
     Composition convertedComp("Конверторованная песенка.");
     cout << "Конструктор преобразования:\n" << convertedComp << endl;
-}
-
-void demoDelegatingConstructor() {
-    Composition delegatedComp("Делигированная песня", "Делегиованный автор");
-    cout << "Делегаторрррр:\n" << delegatedComp << endl;
 }
 #endif // KLIMOVA_LR3_4_METHODS_H
