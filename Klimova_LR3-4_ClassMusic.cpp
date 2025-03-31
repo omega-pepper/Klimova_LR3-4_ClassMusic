@@ -1,21 +1,5 @@
 #include "Klimova_LR3-4_ClassMusic.h"
-
-// Конструктор по умолчанию
-Composition::Composition() : title("Неизвестен!"), author("Неизвестен :()"), duration(0.0), releases({}) {}
-
-// Параметризованный конструктор
-Composition::Composition(const string& title, const string& author, double duration, const vector<string>& releases)
-    : title(title), author(author), duration(duration), releases(releases) {}
-
-// Конструктор копирования
-Composition::Composition(const Composition& other)
-    : title(other.title), author(other.author), duration(other.duration), releases(other.releases) {}
-
-// Конструктор преобразования (из строки в композицию)
-Composition::Composition(const string& title) : title(title), author("Неизвестен :)"), duration(0.0), releases({}) {}
-
-// Деструктор
-Composition::~Composition() {}
+#include "Klimova_LR3-4_Methods.h"
 
 // Дружественная функция вывода
 ostream& operator<<(ostream& os, const Composition& c) {

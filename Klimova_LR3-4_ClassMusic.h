@@ -4,13 +4,13 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include <vector>
 #include <algorithm>
 #include <map>
 
 using namespace std;
 
-class Composition {
+class Composition 
+{
 private:
     string title;
     string author;
@@ -19,13 +19,19 @@ private:
 
 public:
     // Конструкторы
-    Composition();
-    Composition(const string& title, const string& author, double duration, const vector<string>& releases);
-    Composition(const Composition& other);
-    explicit Composition(const string& title);
+      Composition() : Composition("Неизвестный трек", "Неизвестный автор", 0.0, {}) {}
+
+    Composition(const string& title, const string& author, double duration, const vector<string>& releases)
+        : title(title), author(author), duration(duration), releases(releases) {}
+
+    Composition(const Composition& other) 
+        : Composition(other.title, other.author, other.duration, other.releases) {}
+
+    explicit Composition(const string& title) 
+        : Composition(title, "Неизвестный автор", 0.0, {}) {}
     
     // Деструктор
-    ~Composition();
+    ~Composition() = default;
 
     // Методы get
     string getTitle() const { return title; }
