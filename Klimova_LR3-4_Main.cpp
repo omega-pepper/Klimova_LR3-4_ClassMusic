@@ -1,47 +1,57 @@
 #include "Klimova_LR3-4_ClassMusic.h"
 #include "Klimova_LR3-4_Methods.h"
+#include "Klimova_LR3-4_ClassMusic.cpp"
+
+struct MenuItem {
+    string title;
+    function<void()> action;
+};
 
 int main() 
 {
     setlocale(LC_ALL, "Russian");
 
-    map<int, void(*)()> menu = {
-        {1, demoDefaultConstructor},
-        {2, demoParameterizedConstructor},
-        {3, demoCopyConstructor},
-        {4, demoConversionConstructor},
-        {5, demoMethods},
-        {6, demoOperators},
-        {7, demoArray},
-        {8, demoSorting}
+    map<int, MenuItem> menu = 
+    {
+        {1, {"Конструктор по умолчанию", demoDefaultConstructor}},
+        {2, {"Параметризованный конструктор", demoParameterizedConstructor}},
+        {3, {"Конструктор копирования",demoCopyConstructor}},
+        {4, {"Конструктор преобразования",demoConversionConstructor}},
+        {5, {"Методы",demoMethods}},
+        {6, {"Операторы",demoOperators}},
+        {7, {"Список композиций (массив)",demoArray}},
+        {8, {"Сортировка по длительности",demoSorting}},
+        {9, {"Ввод композиции (я хочу торт)", demoOutputOperator}},
     };
 
-    while (true) {
-        cout << "\nМеню:\n";
-        cout << "1. Конструктор по умолчанию.\n";
-        cout << "2. Параметризованный конструктор.\n";
-        cout << "3. Конструктор копирования.\n";
-        cout << "4. Конструктор преобразования.\n";
-        cout << "5. Методы.\n";
-        cout << "6. Операторы.\n";
-        cout << "7. Список композиций (массив).\n";
-        cout << "8. Сортировка по длительности.\n";
+    unsigned choice = 0;
+    while (true) 
+    {
+        cout << "Меню:\n";
+        for (const auto& [key, item] : menu)
+        cout << key << ". " << item.title << '\n';
         cout << "0. Выход.\n";
-        
-        int choice;
-        cout << "\nВведите число: ";
-        cin >> choice;
-        cout << endl;
-  
+
+    int choice;
+    cout << "\nВведите число: ";
+    if (!(cin >> choice) || (choice != 0 && menu.find(choice) == menu.end())) 
+    {
+        cout << "Ошибка: введите допустимое целое число из меню!\n";
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        continue;
+    }
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
         if (choice == 0) break;
-        
+                
         auto it = menu.find(choice);
         if (it != menu.end()) {
-            it->second();
+        it->second.action();
         } else {
             cout << "Ошибка: неверный ввод!\n";
         }
     }
-    
+
     return 0;
 }
